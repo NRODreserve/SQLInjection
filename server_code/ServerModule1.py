@@ -43,17 +43,17 @@ INSERT INTO users (username, password, balance) VALUES (?, ?, ?)
 db.commit()
 
 
-
 @anvil.server.callable
 def check_login(username, password):
-    # Unsichere SQL-Abfrage (für Übungszwecke)
+    # Unsicherer SQL-Befehl (zu Demonstrationszwecken)
     query = f"SELECT * FROM users WHERE username='{username}' AND password='{password}'"
-    print(f"SQL Query: {query}")  # Debug-Ausgabe
-    
-    cursor.execute(query)
-    result = cursor.fetchone()
+    print(f"SQL Query: {query}")  # Debugging
 
-    if result:
-        return {"username": result[1], "balance": result[3]}
+    cursor.execute(query)
+    results = cursor.fetchall()
+
+    # Ergebnisse als Liste von Dictionaries zurückgeben
+    if results:
+        return [{"account_id": r[0], "balance": r[3]} for r in results]
     else:
         return None
