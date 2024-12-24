@@ -25,8 +25,8 @@ db_schema:
     server: full
     title: Table 3
 dependencies: []
-name: M3 App 4
-package_name: M3_App_4
+name: sqlInjectionLVL1
+package_name: sqlInjectionLVL1
 renamed: true
 runtime_options:
   client_version: '3'
